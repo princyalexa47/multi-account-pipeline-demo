@@ -4,7 +4,7 @@ Parameters:
   EnvName:
     Type: String
     Default: dev
-Resources:
+Resources: 
   DemoBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -12,3 +12,6 @@ Resources:
 Outputs:
   BucketName:
     Value: !Ref DemoBucket
+          Tags:
+        - Key: Project
+          Value: multi-account-pipeline
