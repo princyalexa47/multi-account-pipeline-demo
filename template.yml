@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Demo stack deployed by multi-account pipeline
+Parameters:
+  EnvName:
+    Type: String
+    Default: dev
+Resources:
+  DemoBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'pipeline-demo-${EnvName}-${AWS::AccountId}'
+Outputs:
+  BucketName:
+    Value: !Ref DemoBucket
